@@ -1,6 +1,5 @@
 package com.example.ecomm.dto;
 
-import org.springframework.http.HttpStatusCode;
 
 import java.util.Map;
 

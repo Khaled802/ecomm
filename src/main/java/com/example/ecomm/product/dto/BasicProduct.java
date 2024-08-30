@@ -3,7 +3,6 @@ package com.example.ecomm.product.dto;
 import com.example.ecomm.product.Product;
 
 import java.math.BigDecimal;
-import java.util.Optional;
 
 public record BasicProduct(Integer id, String name, BigDecimal price, boolean inStock) {
     public static BasicProduct create(Product product) {
