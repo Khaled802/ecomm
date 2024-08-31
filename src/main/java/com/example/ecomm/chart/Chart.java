@@ -1,12 +1,10 @@
 package com.example.ecomm.chart;
 
 import com.example.ecomm.chart.entity.ChartDetail;
-import com.example.ecomm.product.Product;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity

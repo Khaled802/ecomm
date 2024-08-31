@@ -1,7 +1,6 @@
 package com.example.ecomm.chart.dto;
 
 import com.example.ecomm.chart.Chart;
-import com.example.ecomm.product.dto.BasicProduct;
 
 import java.util.List;
 
