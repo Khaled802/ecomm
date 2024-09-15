@@ -1,7 +1,9 @@
 package com.example.ecomm.chart;
 
-import com.example.ecomm.chart.entity.ChartDetail;
+import com.example.ecomm.chart.entity.CartDetail;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.LinkedHashSet;
@@ -14,24 +16,28 @@ import java.util.Set;
 @Getter
 @Setter
 @Builder
-public class Chart {
+public class Cart {
     @Id
     @Column(name = "id")
     @SequenceGenerator(name = "chart_id", sequenceName = "chart_id_seq", allocationSize = 1)
     @GeneratedValue(generator = "chart_id", strategy = GenerationType.SEQUENCE)
     private Integer id;
 
+    @Column(name = "name")
+    @NotNull
+    @NotBlank
+    private String name;
 
     @OneToMany(mappedBy = "chart", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, orphanRemoval = true)
-    private Set<ChartDetail> chartDetails = new LinkedHashSet<>();
+    private Set<CartDetail> cartDetails = new LinkedHashSet<>();
 
-    public void addChartDetail(ChartDetail chartDetail) {
-        chartDetail.setChart(this);
-        this.chartDetails.add(chartDetail);
+    public void addChartDetail(CartDetail cartDetail) {
+        cartDetail.setCart(this);
+        this.cartDetails.add(cartDetail);
     }
 
-    public void removeChartDetail(ChartDetail chartDetail) {
-        chartDetail.setChart(null);
-        this.chartDetails.remove(chartDetail);
+    public void removeChartDetail(CartDetail cartDetail) {
+        cartDetail.setCart(null);
+        this.cartDetails.remove(cartDetail);
     }
 }

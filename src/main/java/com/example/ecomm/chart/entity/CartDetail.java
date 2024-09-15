@@ -1,6 +1,6 @@
 package com.example.ecomm.chart.entity;
 
-import com.example.ecomm.chart.Chart;
+import com.example.ecomm.chart.Cart;
 import com.example.ecomm.product.Product;
 import jakarta.persistence.*;
 import lombok.*;
@@ -12,7 +12,7 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-public class ChartDetail {
+public class CartDetail {
     @Id
     @Column(name = "id")
     @SequenceGenerator(name = "chartDetail_id", sequenceName = "chart_details_id_seq", allocationSize = 1)
@@ -25,7 +25,7 @@ public class ChartDetail {
 
     @ManyToOne
     @JoinColumn(name = "chart_id", referencedColumnName = "id", nullable = false)
-    private Chart chart;
+    private Cart cart;
 
     @Column(name = "quantity")
     private Integer quantity;
